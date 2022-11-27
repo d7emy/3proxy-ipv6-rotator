@@ -3,7 +3,7 @@ ulimit -u unlimited -n 999999 -s 16384
 
 service network restart
 
-rm -rf ip.list2.sh ip.list
+rm -rf list.sh ip.list
 
 chmod +x gen_ipv6.sh
 bash gen_ipv6.sh
@@ -24,13 +24,13 @@ allow * *
 flush
 END
 
-chmod +x 1proxy.sh
-bash 1proxy.sh > 2proxy.txt
+chmod +x create_3proxy_lines.sh
+bash create_3proxy_lines.sh > 2proxy.txt
 
 cat 2proxy.txt >> 3proxy.cfg
 
-chmod +x ip.list2.sh
-bash ip.list2.sh
+chmod +x list.sh
+bash list.sh
 ulimit -u unlimited -n 999999 -s 16384
 pkill 3proxy
 /root/3proxy/bin/3proxy 3proxy.cfg
