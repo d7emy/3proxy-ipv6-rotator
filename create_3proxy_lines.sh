@@ -7,7 +7,7 @@ do
                 echo "proxy -6 -n -a -ocUSE_TCP_FASTOPEN -p$port -i$ip -e$line3"
         ((port+=1))
         ((count+=1))
-        if [ $count -eq 90001 ]; then
+        if [ $count -eq 65565 ]; then
                 exit
 		fi
 done 3<ip.list
